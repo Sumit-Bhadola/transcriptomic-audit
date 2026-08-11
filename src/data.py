@@ -7,10 +7,11 @@ Usage:
     python src/data.py
 """
 
-import pandas as pd
-from pathlib import Path
+import pathlib
 
-ROOT = Path(__file__).resolve().parents[1]
+import pandas as pd
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 PROCESSED = ROOT / "data" / "processed"
 PROCESSED.mkdir(parents=True, exist_ok=True)
@@ -22,7 +23,7 @@ META_COLS = {"patient", "tss", "sample_type", "plate", "subtype"}
 LABEL_COL = "PAM50Call_RNAseq"
 
 
-def _find(*names: str) -> Path:
+def _find(*names: str) -> pathlib.Path:
     """Locate a raw file, tolerating .gz variants."""
     for name in names:
         for candidate in (RAW / name, RAW / f"{name}.gz"):
