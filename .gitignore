@@ -1,0 +1,11 @@
+data/
+*.parquet
+*.tsv
+*.csv
+*.txt.gz
+.ipynb_checkpoints/
+__pycache__/
+.venv/
+.env
+results/figures/*.png
+!results/figures/.gitkeep
